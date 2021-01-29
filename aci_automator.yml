@@ -58,7 +58,7 @@
             <<: *apic_info
             validate_certs: no
             use_proxy:      no
-            path:           /api/node/mo/uni/tn-{{ prov_tn_name }}/brc-{{ contract_name }}.json
+            path:           /api/node/mo/uni/{{ contract_tn_name }}/brc-{{ contract_name }}.json
             method:         post
             content:
                 vzBrCP:
@@ -86,7 +86,7 @@
                                 attributes:
                                     tnVzFilterName: "{{ subj_name }}_src_port_any_to_dst_port_{{ dst_port}}"
                                     status:         "created,modified"
-        register:         subj_and_flt
+        register: subj_and_flt
 
       # Bind the contract to the source host's EPG
       - name:             Bind Contract to Source EPG
