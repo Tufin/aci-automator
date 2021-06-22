@@ -108,13 +108,13 @@
       aci_l3out_extepg_to_contract:
         <<: *apic_info
         tenant:       "{{ prov_tn_name }}"
-        l3out:        "{{ prov_i3out_name }}"
+        l3out:        "{{ prov_l3out_name }}"
         extepg:       "{{ prov_extepg_name }}"
         contract:     "{{ contract_name }}"
         contract_type: consumer
         state: present
       delegate_to: localhost
-      when: prov_i3out_name != '' and prov_extepg_name != ''
+      when: prov_l3out_name != '' and prov_extepg_name != ''
   
     # Bind the contract to the destination host's EPG
     - name:             Bind Contract to Destination EPG
@@ -136,10 +136,10 @@
       aci_l3out_extepg_to_contract:
         <<: *apic_info
         tenant:           "{{ cons_tn_name }}"
-        l3out:            "{{ cons_i3out_name }}"
+        l3out:            "{{ cons_l3out_name }}"
         extepg:           "{{ cons_extepg_name }}"
         contract:         "{{ contract_name }}"
         contract_type:    consumer
         state:            present
       delegate_to: localhost
-      when: cons_i3out_name != '' and cons_extepg_name != ''
+      when: cons_l3out_name != '' and cons_extepg_name != ''
