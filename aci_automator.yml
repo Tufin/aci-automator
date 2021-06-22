@@ -84,7 +84,7 @@
                         -
                             vzRsSubjFiltAtt:
                                 attributes:
-                                    tnVzFilterName: "{{ subj_name }}_src_port_any_to_dst_port_{{ dst_port}}"
+                                    tnVzFilterName: "{{ filter_name }}"
                                     status:         "created,modified"
         register: subj_and_flt
 
