@@ -104,7 +104,7 @@
       when: prov_ap_name != '' and prov_epg_name != ''
     
     # Bind the contract to the source host's external EPG
-    - name: Bind a contract to an external EPG
+    - name: Bind a contract to source external EPG
       cisco.aci.aci_l3out_extepg_to_contract:
         <<: *apic_info
         tenant:       "{{ prov_tn_name }}"
@@ -132,7 +132,7 @@
       when: cons_ap_name != '' and cons_epg_name != ''
   
     # Bind the contract to the destination host's external EPG
-    - name: Bind a contract to an external EPG
+    - name: Bind a contract to destination external EPG
       cisco.aci.aci_l3out_extepg_to_contract:
         <<: *apic_info
         tenant:           "{{ cons_tn_name }}"
