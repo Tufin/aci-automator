@@ -17,14 +17,14 @@
 
   tasks:
     # Create an ACI snapshot
-#    - name:             Create an APIC Snapshot
-#      aci_config_snapshot:
-#        <<: *apic_info
-#        validate_certs: no
-#        state:          present
-#        export_policy:  config_backup
-#        max_count:      10
-#        description:    Snapshot Created by Ansible
+    - name:             Create an APIC Snapshot
+      aci_config_snapshot:
+        <<: *apic_info
+        validate_certs: no
+        state:          present
+        export_policy:  config_backup
+        max_count:      10
+        description:    Snapshot Created by Ansible
   
     # Create a filter
     - name:             Create Filter
@@ -105,7 +105,7 @@
     
     # Bind the contract to the source host's external EPG
     - name: Bind a contract to source external EPG
-      aci_l3out_extepg_to_contract:
+      cisco.aci.aci_l3out_epg_to_contract:
         <<: *apic_info
         tenant:       "{{ prov_tn_name }}"
         l3out:        "{{ prov_l3out_name }}"
@@ -133,7 +133,7 @@
   
     # Bind the contract to the destination host's external EPG
     - name: Bind a contract to destination external EPG
-      aci_l3out_extepg_to_contract:
+      cisco.aci.aci_l3out_extepg_to_contract:
         <<: *apic_info
         tenant:           "{{ cons_tn_name }}"
         l3out:            "{{ cons_l3out_name }}"
