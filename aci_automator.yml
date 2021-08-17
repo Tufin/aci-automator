@@ -113,7 +113,7 @@
         contract:     "{{ contract_name }}"
         contract_type: consumer
         state: present
-      delegate_to: localhost
+#      delegate_to: localhost
       when: prov_l3out_name != '' and prov_extepg_name != ''
   
     # Bind the contract to the destination host's EPG
@@ -141,5 +141,5 @@
         contract:         "{{ contract_name }}"
         contract_type:    consumer
         state:            present
-      delegate_to: localhost
+#      delegate_to: localhost
       when: cons_l3out_name != '' and cons_extepg_name != ''
