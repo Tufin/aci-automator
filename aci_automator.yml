@@ -75,7 +75,7 @@
         <<: *apic_info
         validate_certs: no
         use_proxy:      no
-        path:           /api/node/mo/uni/tn-{{ prov_tn_name }}/brc-{{ contract_name }}/subj-{{ subj_name }}.json
+        path:           /api/node/mo/uni/{{ contract_tn_name }}/brc-{{ contract_name }}/subj-{{ subj_name }}.json
         method:         post
         content:
           vzSubj:
