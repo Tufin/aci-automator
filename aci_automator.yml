@@ -13,7 +13,9 @@
     debug_on_state:     "{{ debug_on | default(false) }}"
     filter_name:        "fl:{{ subj_name }}_{{ dst_port }}"
     filter_entry_name:  "flEn:{{ dst_port }}"
-    contract_name:      "ticket_id:{{ticket_id}}-{{ prov_ap_name }}:{{ prov_epg_name }}_to_{{ cons_ap_name }}:{{ cons_epg_name }}"
+    from_contract:      "{{ prov_epg_name if (prov_ap_name) else prov_extepg_name }}"
+    to_contract:        "{{ cons_epg_name if (cons_ap_name) else cons_extepg_name }}"
+    contract_name:      "ticket_id:{{ ticket_id }}-{{ from_contract }}_to_{{ to_contract }}"
 
   tasks:
     # Create an ACI snapshot
