@@ -111,7 +111,7 @@
         l3out:        "{{ prov_l3out_name }}"
         extepg:       "{{ prov_extepg_name }}"
         contract:     "{{ contract_name }}"
-        contract_type: consumer
+        contract_type: provider
         state: present
 #      delegate_to: localhost
       when: prov_l3out_name != '' and prov_extepg_name != ''
