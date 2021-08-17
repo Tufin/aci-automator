@@ -106,15 +106,15 @@
     # Bind the contract to the source host's external EPG
     - name: Bind a contract to source external EPG
       cisco.aci.aci_l3out_extepg_to_contract:
-            <<: *apic_info
-            tenant:       "{{ prov_tn_name }}"
-            l3out:        "{{ prov_l3out_name }}"
-            extepg:       "{{ prov_extepg_name }}"
-            contract:     "{{ contract_name }}"
-            contract_type: consumer
-            state: present
-          delegate_to: localhost
-          when: prov_l3out_name != '' and prov_extepg_name != ''
+        <<: *apic_info
+        tenant:       "{{ prov_tn_name }}"
+        l3out:        "{{ prov_l3out_name }}"
+        extepg:       "{{ prov_extepg_name }}"
+        contract:     "{{ contract_name }}"
+        contract_type: consumer
+        state: present
+      delegate_to: localhost
+      when: prov_l3out_name != '' and prov_extepg_name != ''
   
     # Bind the contract to the destination host's EPG
     - name:             Bind Contract to Destination EPG
