@@ -15,7 +15,7 @@
     filter_entry_name:  "flEn:{{ dst_port }}"
     from_contract:      "{{ prov_epg_name if (prov_ap_name) else prov_extepg_name }}"
     to_contract:        "{{ cons_epg_name if (cons_ap_name) else cons_extepg_name }}"
-    contract_name:      "ticket_id:{{ ticket_id }}:{{ from_contract }}-to-{{ to_contract }}"
+    contract_name:      "ticket:{{ ticket_id }}:{{ from_contract }}:{{ to_contract }}"
 
   tasks:
     # Create an ACI snapshot
